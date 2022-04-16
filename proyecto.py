@@ -1,9 +1,11 @@
+#importo librerias
 from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
+#inicio la app
 app = Ursina()
 
 
- 
+#creo la clase del cubo
 class Voxel(Button):
     def __init__(self, position=(0, 0, 0),):
         super().__init__(
@@ -15,7 +17,7 @@ class Voxel(Button):
             position=position,
             origin_y=0.5
         )
-
+#defino la funcion de romper
     def input(self, key):
         if self.hovered:
             if key == "left mouse down":
@@ -27,7 +29,7 @@ class Voxel(Button):
 
 
 
-
+#cargo el chunk
 chunkSize = 16
 
 for z in range (chunkSize):
@@ -37,10 +39,12 @@ for z in range (chunkSize):
 
 
 
-
+#lo pongo en 1 persona 
 player = FirstPersonController()
+
+#creo el cielo
 sky = Sky()
 
 
-
+#corro el programa
 app.run()
